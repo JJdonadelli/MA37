@@ -42,11 +42,11 @@ matemática no ensino.
 15. Modelagem matemática
 16. Modelagem matemática
 
-## [1ª Lista de Exercícios](http://professor.ufabc.edu.br/~jair.donadelli/MA37/Exerc%C3%ADcios.html)
+## [1ª Lista de Exercícios](Exercicios1.html)
 
 Entrega em 23/05 com tolerância até 30/05. Após 30/05 desconto de 10% na nota.
 
-## [2ª Lista de Exercícios](Ecercicios2.html)
+## [2ª Lista de Exercícios](Exercicios2.html)
 
 Entrega em 11/07.
 

@@ -6,6 +6,8 @@
 
 **Objetivo**: a disciplina enfatiza aplicações matemáticas, usando técnicas de modelagem como procedimento, de modo a desenvolver, no aluno, capacidades e atitudes criativas na direção da resolução de problemas; desenvolver o espírito crítico do estudante de modo que ele possa utilizar a matemática como ferramenta para resolver problemas em diferentes situações e áreas.
 
+**Atenção:** fique atento ao seu email da ufabc para receber os comunicados da disciplina.
+
 [toc]
 
 ## Ementa
@@ -33,7 +35,7 @@ matemática no ensino.
 6. Probabilidade em modelagem matemática. Notas de aula: [probabilidade](probabilidade.pdf), [variáveis aleatórias](varsaleatorias.pdf). Planilha [simulação de Monty Hall](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1483823682#gid=1483823682)
 7. Probabilidade em modelagem matemática. Problema da ruína.  [Notas de aula](ruina.pdf). Planilha com  [simulação](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1154309694#gid=1154309694).
 8. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](). [Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades.
-9. Ajuste de curvas de crescimento exponencial, de curva logística e modelo logístico  (Ref.: cap 2 de [1])
+9. Ajuste de curvas  (Ref.: cap 2 de [1])
 10. Equações diferenciais: geral de primeira ordem e problema de valor inicial
 11. Equação diferencial fundamental e equações autônomas
 12. Modelos matemáticos com equações diferenciais de primeira ordem

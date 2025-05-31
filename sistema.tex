@@ -1,0 +1,779 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, positioning}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{bm}
+
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            citecolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            pdfborder={0 0 0}]{hyperref}
+
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+
+
+\begin{document}
+
+\title{Sistemas de equações de diferenças}
+\date{}
+
+
+\maketitle
+
+%\tableofcontents
+
+\section*{Distribuição de carros entre São Paulo e Rio de Janeiro}
+
+
+
+Uma locadora de veículos possui filiais em São Paulo e no Rio de
+Janeiro, e atende agências de turismo cujos clientes frequentemente
+retiram o carro em uma cidade e o devolvem na outra. Os itinerários
+podem começar em qualquer uma das cidades, e a empresa deseja
+determinar quanto cobrar pela conveniência da devolução em local
+diferente da retirada.
+
+Para isso, é necessário saber se o fluxo natural de devoluções garante
+um número suficiente de veículos em cada cidade para atender à demanda,
+ou se será necessário transportar carros entre cidades — o que implica
+custos adicionais.
+
+Segundo registros históricos, 60\% dos carros alugados em São Paulo são
+devolvidos na mesma cidade, e 40\% no Rio. Já dos carros alugados no
+Rio de Janeiro, 70\% retornam ao Rio, e 30\% vão para São Paulo.
+
+\bigskip
+
+Essas informações são representadas graficamente na
+Figura~\ref{fig:transicoes}.
+
+
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[node distance=3cm, >=Stealth]
+  \node[circle, draw, minimum size=1.5cm] (SP) {SP};
+  \node[circle, draw, right of=SP, minimum size=1.5cm] (RJ) {RJ};
+
+  % Loops
+  \draw[->] (SP) edge[loop left] node[left] {60\%} (SP);
+  \draw[->] (RJ) edge[loop right] node[right] {70\%} (RJ);
+
+  % Transitions
+  \draw[->] (SP) to[bend left=20] node[above] {40\%} (RJ);
+  \draw[->] (RJ) to[bend left=20] node[below] {30\%} (SP);
+\end{tikzpicture}
+\caption{Transições de devolução de veículos entre São Paulo e Rio de
+  Janeiro}
+\label{fig:transicoes}
+\end{figure}
+
+Vamos desenvolver um modelo para o sistema. Seja \( n \) o número de
+dias úteis. Definimos:
+
+\begin{align*}
+  S_n &= \text{número de carros em São Paulo no final do dia } n, \\
+  R_n &= \text{número de carros no Rio de Janeiro no final do dia } n.
+\end{align*}
+
+Assim, os registros históricos revelam o seguinte sistema:
+
+\begin{align*}
+S_{n+1} &= 0{,}6 S_n + 0{,}3 R_n, \\
+R_{n+1} &= 0{,}4 S_n + 0{,}7 R_n.
+\end{align*}
+
+\section*{Valores de Equilíbrio}
+
+Os valores de equilíbrio para o sistema são aqueles valores de
+\( S_n \) e \( R_n \) para os quais não ocorre mudança no
+sistema. Vamos chamar os valores de equilíbrio, se existirem, de
+\( S \) e \( R \), respectivamente. Então, temos
+\( S = S_{n+1} = S_n \) e \( R = R_{n+1} = R_n \) simultaneamente.
+
+Substituindo no modelo, obtemos:
+
+\begin{align*}
+S &= 0{,}6 S + 0{,}3 R, \\
+R &= 0{,}4 S + 0{,}7 R.
+\end{align*}
+
+Ou, em forma matricial:
+
+\[
+\begin{bmatrix}
+0{,}4 & -0{,}3 \\
+-0{,}4 & 0{,}3
+\end{bmatrix}
+\begin{bmatrix}
+S \\ R
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\ 0
+\end{bmatrix}
+\]
+
+Este sistema é satisfeito sempre que \( S = \frac{3}{4} R \). Por
+exemplo, se a empresa possuir 7000 carros e começar com 3000 em São
+Paulo e 4000 no Rio de Janeiro, então o modelo prevê:
+
+\begin{align*}
+  S_1 &= 0{,}6 \cdot 3000 + 0{,}3 \cdot 4000 = 3000, \\
+  R_1 &= 0{,}4 \cdot 3000 + 0{,}7 \cdot 4000 = 4000.
+\end{align*}
+
+Assim, o sistema permanece em \( (S, R) = (3000, 4000) \) se iniciarmos
+com esses valores.
+
+\subsubsection*{Iterações com Condições Iniciais Diferentes}
+
+Vamos agora explorar o que acontece se começarmos com valores diferentes dos de equilíbrio. Iteramos o sistema para os seguintes quatro conjuntos de condições iniciais:
+
+\begin{center}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Caso} & \textbf{São Paulo} & \textbf{Rio de Janeiro} \\
+\hline
+1 & 7000 & 0 \\
+2 & 5000 & 2000 \\
+3 & 2000 & 5000 \\
+4 & 0    & 7000 \\
+\hline
+\end{tabular}
+\end{center}
+
+Uma solução numérica, ou tabela de valores, para cada conjunto de
+valores iniciais é mostrada na Figura correspondente (Figura 1.23 no
+original).
+
+\subsection*{Sensibilidade às Condições Iniciais e Comportamento em Longo Prazo}
+
+Em cada um dos quatro casos, dentro de uma semana o sistema está muito
+próximo do valor de equilíbrio \( (3000,\ 4000) \), mesmo na ausência
+de qualquer carro em um dos dois locais. Nossos resultados sugerem que
+o valor de equilíbrio é estável e insensível aos valores iniciais.
+
+Com base nessas explorações, somos levados a prever que o sistema se
+aproxima do equilíbrio em que \( \frac{3}{7} \) da frota acaba em São
+Paulo e os \( \frac{4}{7} \) restantes no Rio de Janeiro. Essa
+informação é útil para a empresa: conhecendo os padrões de demanda em
+cada cidade, a empresa pode estimar quantos carros precisa transportar.
+
+Na lista de exercícios, pedimos que você explore o sistema para
+determinar se ele é sensível aos coeficientes nas equações para
+\( S_{n+1} \) e \( R_{n+1} \).
+
+
+%\paragraph{Caso 1:} \textbf{São Paulo = 7000, Rio de Janeiro = 0}
+
+\begin{table}[h]
+%\centering
+\begin{minipage}[h]{.45\linewidth}
+\caption{Evolução da Frota - Caso 1}
+\begin{tabular}{cccc}
+\toprule
+$n$ & $S_n$ & $R_n$ \\
+\midrule
+0 & 7000 & 0 \\
+1 & 4200 & 2800 \\
+2 & 3360 & 3640 \\
+3 & 3108 & 3892 \\
+4 & 3032.4 & 3967.6 \\
+5 & 3009.72 & 3990.28 \\
+6 & 3002.916 & 3997.084 \\
+7 & 3000.875 & 3999.125 \\
+\bottomrule
+\end{tabular}
+%
+\end{minipage}
+\begin{minipage}[h]{.45\linewidth}
+\begin{tikzpicture}[scale=.9]
+\begin{axis}[
+    xlabel={$n$ (dias)},
+    ylabel={Número de carros},
+    legend style={at={(0.5,-0.2)},anchor=north},
+    title={Evolução da Frota - Caso 1},
+    xtick={0,...,7},
+    grid=major
+]
+\addplot coordinates {
+    (0,7000)(1,4200)(2,3360)(3,3108)(4,3032.4)(5,3009.72)(6,3002.916)(7,3000.875)
+};
+\addplot coordinates {
+    (0,0)(1,2800)(2,3640)(3,3892)(4,3967.6)(5,3990.28)(6,3997.084)(7,3999.125)
+};
+\legend{São Paulo, Rio de Janeiro}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{table}
+
+%\paragraph{Caso 2:}  \textbf{São Paulo = 5000, Rio de Janeiro = 2000}
+
+\begin{table}[h!]
+  \begin{minipage}[h]{.45\linewidth}
+\caption{Evolução da Frota - Caso 2}
+\begin{tabular}{cccc}
+\toprule
+$n$ & $S_n$ & $R_n$ \\
+\midrule
+0 & 5000 & 2000 \\
+1 & 3600 & 3400 \\
+2 & 3180 & 3820 \\
+3 & 3054 & 3946 \\
+4 & 3016.2 & 3983.8 \\
+5 & 3004.86 & 3995.14 \\
+6 & 3001.458 & 3998.542 \\
+7 & 3000.437 & 3999.563 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\begin{minipage}[h]{.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$n$ (dias)},
+    ylabel={Número de carros},
+    legend style={at={(0.5,-0.2)},anchor=north},
+    title={Evolução da Frota - Caso 2},
+    xtick={0,...,7},
+    grid=major
+]
+\addplot coordinates {
+    (0,5000)(1,3600)(2,3180)(3,3054)(4,3016.2)(5,3004.86)(6,3001.458)(7,3000.437)
+};
+\addplot coordinates {
+    (0,2000)(1,3400)(2,3820)(3,3946)(4,3983.8)(5,3995.14)(6,3998.542)(7,3999.563)
+};
+\legend{São Paulo, Rio de Janeiro}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{table}
+
+%\paragraph{Caso 3:}  \textbf{São Paulo = 2000, Rio de Janeiro = 5000}
+
+\begin{table}[h!]
+  \begin{minipage}[h]{.45\linewidth}
+\caption{Evolução da Frota - Caso 3}
+\begin{tabular}{cccc}
+\toprule
+$n$ & $S_n$ & $R_n$ \\
+\midrule
+0 & 2000 & 5000 \\
+1 & 2700 & 4300 \\
+2 &  2910 &4090 \\
+3 & 2973 & 4027 \\
+4 & 2991.9 & 4008.1 \\
+5 & 2997.57 &   4002.43\\
+6 & 2999.271 & 4000.729 \\
+7 &  2999.781  &4000.219\\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\begin{minipage}[h]{.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$n$ (dias)},
+    ylabel={Número de carros},
+    legend style={at={(0.5,-0.2)},anchor=north},
+    title={Evolução da Frota - Caso 3},
+    xtick={0,...,7},
+    grid=major
+]
+\addplot coordinates {
+    (0,2000)(1,2700)(2,2910)(3,2973)(4,2991.9)(5,2997.57)(6,2999.271)(7,2999.781)
+};
+\addplot coordinates {
+    (0,5000)(1,4300)(2,4090)(3,4027)(4,4008.1)(5,4002.43)(6,4000.729)(7,4000.219)
+};
+\legend{São Paulo, Rio de Janeiro}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{table}
+
+
+\begin{table}[h!]
+  \begin{minipage}[h]{.45\linewidth}
+\caption{Evolução da Frota - Caso 4}
+\begin{tabular}{cccc}
+\toprule
+$n$ & $S_n$ & $R_n$ \\
+\midrule
+0 & 0 & 7000 \\
+1 & 2100 & 4900 \\
+2 & 2730 &4270  \\
+3 & 2919 & 4081 \\
+4 & 2975.7  & 4024.3 \\
+5 & 2992.71 &  4007.29\\
+6 & 2997.813  & 4002.187 \\
+7 & 2999.344 & 4000.656 \\
+\bottomrule
+\end{tabular}
+\end{minipage}
+\begin{minipage}[h]{.45\linewidth}
+\begin{tikzpicture}
+\begin{axis}[
+    xlabel={$n$ (dias)},
+    ylabel={Número de carros},
+    legend style={at={(0.5,-0.2)},anchor=north},
+    title={Evolução da Frota - Caso 4},
+    xtick={0,...,7},
+    grid=major
+]
+\addplot coordinates {
+  (0,0)(1,2100)(2,2730)(3,2919)(4,2975.7)(5,2992.71)(6,2997.813)(7,2999.344)
+};
+\addplot coordinates {
+        (0,7000)(1,4900)(2,4270)(3,4081)(4,4024.3)(5,4007.29)(6,4002.187)(7,4000.656)
+};
+\legend{São Paulo, Rio de Janeiro}
+\end{axis}
+\end{tikzpicture}
+\end{minipage}
+\end{table}
+
+
+\clearpage
+
+\section*{Modelo Discreto de Epidemias}
+
+Considere uma doen\c{c}a que est\'a se espalhando, como uma nova
+gripe. O governo est\'a interessado em estudar e experimentar um modelo
+para essa nova doen\c{c}a antes que ela se torne de fato uma
+epidemia. Vamos considerar a popula\c{c}\~ao dividida em tr\^es
+categorias: suscet\'iveis ($S$), infectados ($I$) e removidos ($R$).  O
+modelo considerado \'{e} conhecido como SIR\footnote{os parâmetros do
+  modelo SIR são de difícil obtenção. É necessário equipes
+  interdisciplinares para fazer tratamento de dados.}. Fazemos as
+seguintes suposi\c{c}\~oes para nosso modelo:
+\begin{itemize}
+\item Ningu\'em entra ou sai da comunidade e n\~ao h\'a contato com o
+  exterior.
+\item Cada pessoa est\'a em um dos tr\^es estados: suscet\'ivel $S$
+  (pode pegar a gripe), infectado $I$ (tem a gripe e pode
+  transmiti-la), ou removido $R$ (j\'a teve a gripe e n\~ao pode
+  peg\'a-la novamente, incluindo os casos de \'obito).
+\item Inicialmente, cada pessoa est\'a em $S$ ou $I$.
+\item Uma vez que algu\'em pega a gripe neste ano, n\~ao pode peg\'a-la
+  novamente.
+\item A dura\c{c}\~ao m\'edia da doen\c{c}a \'e de $5/3$ semanas
+  ($1\tfrac 23$ semana), durante a qual a pessoa \'{e}
+  considerada infectada e pode transmitir a doen\c{c}a.
+\item O per\'{\i}odo de tempo do modelo \'{e} semanal.
+\end{itemize}
+Além disso, a dura\c{c}\~ao da doen\c{c}a \'{e} $5/3$ semanas.
+
+Definimos as seguintes vari\'{a}veis:
+\begin{align*}
+  S_n &= \text{n\'umero de suscet\'iveis ap\'os o per\'iodo } n \\
+  I_n &= \text{n\'umero de infectados ap\'os o per\'iodo } n \\
+  R_n &= \text{n\'umero de removidos ap\'os o per\'iodo } n
+\end{align*}
+e come\c{c}amos modelando $R_n$. A \emph{taxa de remoção} $\gamma$ é a
+proporção de infetados removidos em um período,
+$ \Delta R = \gamma I_n$, ou seja, é a proporção que indica qual fração
+das pessoas infectadas sai da categoria ``infectado'' em um período de
+tempo,
+\[
+  R_{n+1} = R_n + \gamma \cdot I_n
+\]
+e se $D$ é a duração média da infecção então $D\gamma =1$. No nosso
+exemplo $\gamma =3/5 = 0{,}6$, ou seja, 60\% dos infectados deixam de
+ser infectados a cada semana. 
+
+A \textit{taxa de transmissão} $\beta$ mede a velocidade com que a
+doença se espalha na população, ela representa a probabilidade de um
+contato entre um suscetível e um infectado resultar em infecção por
+unidade de tempo, assim o número esperado de novas infecções
+\[
+  \Delta S= - \beta S_n I_n.
+\]
+O termo de novos infectados por semana é $\Delta I$: $\beta S_n I_n$,
+em cada semana, cada par suscetível–infectado tem uma chance de
+aproximadamente $\beta$ de resultar em nova infecção diminuída da
+remo\c{c}\~ao dos infectados $\gamma  I_n$
+\begin{equation}
+  \label{eq:taxainfeccao}
+  \Delta I = (\beta S_n - \gamma)I_n
+\end{equation}
+se $\beta S_n > \gamma$ a doença tende a se espalhar e se se
+$\beta S_n < \gamma$ tende a desaparecer. Assumimos inicialmente que
+$\beta$ \'{e} constante e pode ser estimada a partir das
+condi\c{c}\~oes iniciais\footnote{Por exemplo, se $I(0) = 5$ e
+  $S(0) = 995$, e $I(1) = 9$, temos:
+  $I(1) = I(0) - 0{,}6 \cdot I(0) + a \cdot I(0) \cdot S(0) \Rightarrow
+  \beta = 0{,}001407$}
+
+\paragraph{Observação}
+$ R_0
+= %\frac{\text{taxa de transmissão}}{\text{taxa de remoção}} S_0 =
+\frac{\beta}{\gamma}S_0$ define o \emph{número básico de reprodução},
+que mede o potencial de disseminação da doença: Se $R_0 > 1$, a doença
+tende a se espalhar; se $R_0 < 1$, a epidemia tende a desaparecer. No
+início $R_0 \approx (\beta/\gamma)N$. Nesse caso, \textbf{o isolamento
+  social (quarentena) diminui o $\beta$ que, por sua vez, faz diminuir
+  o $R_0$}.
+
+\medskip
+
+Nosso modelo  \'{e} ent\~ao:
+\[
+  \begin{cases}
+    R_{n+1} = R_n + 0{,}6 I_n \\
+    I_{n+1} = I_n - 0{,}6 I_n + 0{,}001407 I_n S_n \\
+    S_{n+1} = S_n - 0{,}001407 S_n I_n
+  \end{cases}
+\]
+com condi\c{c}\~oes iniciais:
+\( I(0) = 5, \quad S(0) = 995, \quad R(0) = 0 \).
+
+
+Esse sistema SIR pode ser resolvido iterativamente e analisado
+graficamente para compreender o comportamento da epidemia.
+
+\begin{table}[htpb]
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Semana ($n$)} & \textbf{$S_n$} & \textbf{$I_n$} & \textbf{$R_n$} \\ \hline
+0  & 995.000000   & 5.000000    & 0.000000 \\ \hline
+1  & 988.000175   & 8.999825    & 3.000000 \\ \hline
+2  & 975.489372   & 16.110733   & 8.399895 \\ \hline
+3  & 953.377173   & 28.556492   & 18.066335 \\ \hline
+4  & 915.071446   & 49.728324   & 35.200230 \\ \hline
+5  & 851.045954   & 83.916821   & 65.037225 \\ \hline
+6  & 750.562135   & 134.050548  & 115.387317 \\ \hline
+7  & 608.999271   & 195.183083  & 195.817646 \\ \hline
+8  & 441.754309   & 245.318195  & 312.927496 \\ \hline
+9  & 289.277198   & 250.604389  & 460.118413 \\ \hline
+10 & 187.277950   & 202.241004  & 610.481046 \\ \hline
+11 & 133.987430   & 134.186921  & 731.825649 \\ \hline
+12 & 108.690470   & 78.971729   & 812.337801 \\ \hline
+13 & 96.613521    & 43.665640   & 859.720839 \\ \hline
+14 & 90.677823    & 23.401955   & 885.920223 \\ \hline
+15 & 87.692115    & 12.346490   & 899.961396 \\ \hline
+16 & 86.168770    & 6.461940    & 907.369289 \\ \hline
+17 & 85.385328    & 3.368218    & 911.246454 \\ \hline
+18 & 84.980680    & 1.751936    & 913.267385 \\ \hline
+19 & 84.771205    & 0.910249    & 914.318546 \\ \hline
+20 & 84.662636    & 0.472668    & 914.864696 \\ \hline
+21 & 84.606332    & 0.245372    & 915.148296 \\ \hline
+22 & 84.577123    & 0.127358    & 915.295519 \\ \hline
+23 & 84.561967    & 0.066099    & 915.371934 \\ \hline
+24 & 84.554103    & 0.034304    & 915.411593 \\ \hline
+25 & 84.550022    & 0.017803    & 915.432176 \\ \hline
+26 & 84.547904    & 0.009239    & 915.442857 \\ \hline
+27 & 84.546805    & 0.004795    & 915.448400 \\ \hline
+28 & 84.546235    & 0.002488    & 915.451277 \\ \hline
+29 & 84.545939    & 0.001291    & 915.452770 \\ \hline
+30 & 84.545785    & 0.000670    & 915.453545 \\ \hline
+31 & 84.545705    & 0.000348    & 915.453947 \\ \hline
+32 & 84.545664    & 0.000180    & 915.454156 \\ \hline
+33 & 84.545642    & 0.000094    & 915.454264 \\ \hline
+34 & 84.545631    & 0.000049    & 915.454320 \\ \hline
+35 & 84.545626    & 0.000025    & 915.454349 \\ \hline
+36 & 84.545623    & 0.000013    & 915.454364 \\ \hline
+37 & 84.545621    & 0.000007    & 915.454372 \\ \hline
+38 & 84.545620    & 0.000004    & 915.454376 \\ \hline
+39 & 84.545620    & 0.000002    & 915.454378 \\ \hline
+40 & 84.545620    & 0.000001    & 915.454379 \\ \hline
+41 & 84.545619    & 0.0000005   & 915.454380 \\ \hline
+42 & 84.545619    & 0.0000003   & 915.454380 \\ \hline
+43 & 84.545619    & 0.0000001   & 915.454381 \\ \hline
+44 & 84.545619    & 0.00000007  & 915.454381 \\ \hline
+45 & 84.545619    & 0.00000004  & 915.454381 \\ \hline
+46 & 84.545619    & 0.00000002  & 915.454381 \\ \hline
+47 & 84.545619    & 0.00000001  & 915.454381 \\ \hline
+48 & 84.545619    & 0.00000001  & 915.454381 \\ \hline
+49 & 84.545619    & 0.00000000  & 915.454381 \\ \hline
+50 & 84.545619    & 0.00000000  & 915.454381 \\ \hline
+\end{tabular}
+\caption{Evolução das variáveis do modelo SIR ao longo das semanas}
+\end{table}
+\clearpage
+\begin{figure}[htbp]
+  \centering
+  \begin{tikzpicture}
+    \begin{axis}[
+      width=13cm,
+      height=7cm,
+      xlabel={Semana $n$},
+      ylabel={População},
+      xmin=0, xmax=22,
+      ymin=0, ymax=1000,
+      legend pos=north east,
+      grid=both,
+      xtick={0,2,4,6,8,10,12,14,16,18,20,22},
+      ytick={0,200,400,600,800,1000},
+      title={Modelo SIR: $S_n$, $I_n$ e $R_n$}
+      ]
+      
+      % Dados S_n
+      \addplot[blue, thick] coordinates {
+        (0,995)(1,988.0002)(2,975.4894)(3,953.3772)(4,915.0714)
+        (5,851.046)(6,750.5621)(7,608.9993)(8,441.7543)(9,289.2772)
+        (10,187.2779)(11,133.9874)(12,108.6905)(13,96.61352)(14,90.67782)
+        (15,87.69211)(16,86.16877)(17,85.38533)(18,84.98068)(19,84.7712)
+        (20,84.66264)(21,84.60633)(22,84.57712)
+      };
+      
+      % Dados I_n
+      \addplot[red, thick] coordinates {
+        (0,5)(1,8.999825)(2,16.11073)(3,28.55649)(4,49.72832)
+        (5,83.91682)(6,134.0505)(7,195.1831)(8,245.3182)(9,250.6044)
+        (10,202.241)(11,134.1869)(12,78.97173)(13,43.66564)(14,23.40195)
+        (15,12.34649)(16,6.46194)(17,3.368218)(18,1.751936)(19,0.910249)
+        (20,0.472668)(21,0.245372)(22,0.127358)
+      };
+      
+      % Dados R_n
+      \addplot[green!60!black, thick] coordinates {
+        (0,0)(1,3)(2,8.399895)(3,18.06633)(4,35.20023)
+        (5,65.03722)(6,115.3873)(7,195.8176)(8,312.9275)(9,460.1184)
+        (10,610.481)(11,731.8256)(12,812.3378)(13,859.7208)(14,885.9202)
+        (15,899.9614)(16,907.3693)(17,911.2465)(18,913.2674)(19,914.3185)
+        (20,914.8647)(21,915.1483)(22,915.2955)
+      };
+      
+      \legend{$S_n$, $I_n$, $R_n$}
+    \end{axis}
+  \end{tikzpicture}
+  \caption{Evolução das populações Suscetível, Infectada e Removida ao
+    longo do tempo.}
+\end{figure}
+
+\begin{figure}[ht]
+  \centering
+  % --- S_n ---
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={$S_n$ -- Suscetíveis},
+        xlabel={Semana $n$},
+        ylabel={$S_n$},
+        ymin=0, ymax=1000,
+        xmin=0, xmax=22,
+        grid=both,
+        width=12cm,
+        height=6cm,
+        xtick={0,2,...,22},
+        ytick={0,200,...,1000},
+        mark options={solid, blue},
+        ]
+        \addplot[
+        color=blue,
+        mark=*,
+        thick
+        ] coordinates {
+          (0,995)(1,988.0002)(2,975.4894)(3,953.3772)(4,915.0714)
+          (5,851.046)(6,750.5621)(7,608.9993)(8,441.7543)(9,289.2772)
+          (10,187.2779)(11,133.9874)(12,108.6905)(13,96.61352)(14,90.67782)
+          (15,87.69211)(16,86.16877)(17,85.38533)(18,84.98068)(19,84.7712)
+          (20,84.66264)(21,84.60633)(22,84.57712)
+        };
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}
+  %
+  %\vspace{0.7cm}
+  %
+  % --- I_n ---
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={$I_n$ -- Infectados},
+        xlabel={Semana $n$},
+        ylabel={$I_n$},
+        ymin=0, ymax=300,
+        xmin=0, xmax=22,
+        grid=both,
+        width=12cm,
+        height=6cm,
+        xtick={0,2,...,22},
+        ytick={0,50,...,300},
+        mark options={solid, red},
+        ]
+        \addplot[
+        color=red,
+        mark=*,
+        thick
+        ] coordinates {
+          (0,5)(1,8.999825)(2,16.11073)(3,28.55649)(4,49.72832)
+          (5,83.91682)(6,134.0505)(7,195.1831)(8,245.3182)(9,250.6044)
+          (10,202.241)(11,134.1869)(12,78.97173)(13,43.66564)(14,23.40195)
+          (15,12.34649)(16,6.46194)(17,3.368218)(18,1.751936)(19,0.910249)
+          (20,0.472668)(21,0.245372)(22,0.127358)
+        };
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}
+  %
+  % \vspace{0.7cm}
+  %
+  % --- R_n ---
+  \begin{subfigure}{0.3\textwidth}
+    \centering
+    \begin{tikzpicture}[scale=.5]
+      \begin{axis}[
+        title={$R_n$ -- Removidos},
+        xlabel={Semana $n$},
+        ylabel={$R_n$},
+        ymin=0, ymax=1000,
+        xmin=0, xmax=22,
+        grid=both,
+        width=12cm,
+        height=6cm,
+        xtick={0,2,...,22},
+        ytick={0,200,...,1000},
+        mark options={solid, green!60!black},
+        ]
+        \addplot[
+        color=green!60!black,
+        mark=*,
+        thick
+        ] coordinates {
+          (0,0)(1,3)(2,8.399895)(3,18.06633)(4,35.20023)
+          (5,65.03722)(6,115.3873)(7,195.8176)(8,312.9275)(9,460.1184)
+          (10,610.481)(11,731.8256)(12,812.3378)(13,859.7208)(14,885.9202)
+          (15,899.9614)(16,907.3693)(17,911.2465)(18,913.2674)(19,914.3185)
+          (20,914.8647)(21,915.1483)(22,915.2955)
+        };
+      \end{axis}
+    \end{tikzpicture}
+  \end{subfigure}
+  
+  \caption{Evolução temporal de $S_n$, $I_n$ e $R_n$ com pontos
+    marcados.}
+\end{figure}
+
+\subsection*{Ponto de equilíbrio do modelo SIR discreto}
+
+O ponto de equilíbrio é um conjunto de valores $(S^*, I^*, R^*)$ tal
+que, se o sistema atinge esses valores, ele permanece neles para
+sempre.
+
+\noindent\textbf{Conservação da população} Como ninguém entra ou sai da
+comunidade (população fechada), temos:
+$S_n+I_n+R_n=N=\text{constante}$.
+
+Formalmente:
+\[
+S_{n+1} = S_n = S^*, \quad I_{n+1} = I_n = I^*, \quad R_{n+1} = R_n = R^*
+\]
+
+As equações do sistema SIR discreto são:
+
+\[
+\begin{cases}
+S_{n+1} = S_n - a S_n I_n \\
+I_{n+1} = I_n - \gamma I_n + a S_n I_n \\
+R_{n+1} = R_n + \gamma I_n
+\end{cases}
+\]
+
+No equilíbrio, temos:
+\[
+\Delta S = -a S^* I^* = 0
+\]
+\[
+\Delta I = -\gamma I^* + a S^* I^* = 0
+\]
+\[
+\Delta R = \gamma I^* = 0
+\]
+
+Portanto, a única solução é $I^* = 0$, ou seja, não há mais infectados.
+Assim, o ponto de equilíbrio é:
+\[
+\boxed{ (S^*, I^*, R^*) = (S^*,\ 0,\ N - S^*) }
+\]
+com $0 \leq S^* \leq N$.
+
+O sistema sempre converge para uma situação em que não há mais
+infectados e a população se divide entre os que nunca foram infectados
+($S^*$) e os que foram infectados e se recuperaram ou morreram ($R^*$)
+O valor exato de $S^*$ depende da dinâmica da epidemia, não
+necessariamente todos se infectam.
+
+\subsection*{Estimativa de $S^*$ (número de suscetíveis no final)}
+
+Queremos estimar $S^*$, o número final de pessoas que nunca foram
+infectadas. O número básico de reprodução é
+\[
+R_0 = \frac{\beta }{\gamma} N.
+\]
+Com os valores do exemplo: \(\beta = 0{,}001407\), \(\gamma = 0{,}6\) e \(N = 1000\)
+\[
+R_0 = \frac{0{,}001407 \cdot 1000}{0,6} = \frac{1{,}407}{0{,}6} \approx 2{,}345
+\]
+
+Vamos relacionar diretamente \( S \) e \( R \), eliminando \( I
+\). Como a população total é constante
+\( \Delta S_n + \Delta I_n + \Delta R_n = 0 \) calculamos as variações:
+\[
+  \begin{aligned}
+    \Delta S_n &= S_{n+1} - S_n = -\beta S_n I_n\\
+    \Delta R_n &= R_{n+1} - R_n = \gamma I_n
+\end{aligned}
+\]
+dividindo as duas expressões:
+\[
+  \frac{\Delta S_n}{\Delta R_n} = -\frac{\beta S_n I_n}{\gamma I_n} =
+  -\frac{\beta}{\gamma} S_n
+\]
+portanto
+\[
+  \frac{\Delta S_n}{S_n} = 
+  -\frac{\beta}{\gamma}  R_n
+\]
+somando ao longo do tempo (do estado inicial até o final $T$):
+\[
+  \sum_{n=0}^{T} \frac{\Delta S_n}{S_n} = -\frac{\beta}{\gamma} \sum_{n=0}^{T}
+  \Delta R_n.
+\]
+O lado direito aproximamos por uma integral
+$\int \tfrac 1S \mathrm{d}S = \ln(S(T)) -\ln(S(0)) =
+\ln(S^*)-\ln(S_0)$, o lado direito é uma soma telescópica, o que leva
+a:
+\[
+\ln S^* - \ln S_0 = -\frac{\beta}{\gamma}  (R^* - R_0) = -\frac{\beta}{\gamma} (N - S^*)
+\]
+pois \( R_0 = 0 \) e \( R^* = N - S^* \). Concluindo
+\[
+\boxed{  
+\ln {S^*} =\ln(S_0) -\frac{\beta}{\gamma}  (N - S^*)  
+}
+\]
+A equação acima relaciona o número final de suscetíveis \( S^* \) ao
+número inicial \( S_0 \), ela é uma equação \emph{implícita} -- não
+conseguimos isolar \( S^* \) de forma analítica --, por isso, para
+encontrar \( S^* \), devemos recorrer a métodos \emph{numéricos} ou
+\emph{gráficos}.  Contudo, uma boa aproximação prática quando $R_0 > 1$
+é:
+\[
+  S^*/N \approx e^{-R_0 \cdot (1 - S^*/N)}
+\]
+Com $R_0 \approx 2,345$, é esperado que aproximadamente 15\%  da
+população permaneça suscetível. No nosso exemplo, com $N = 1000$, temos:
+\[
+\frac{S^*}N \approx \frac{84,5}{1000} (\text{8,45\% da população})
+\]
+permanece suscetível.
+
+
+\end{document}

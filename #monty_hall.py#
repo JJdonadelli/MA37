@@ -1,0 +1,6 @@
+import random
+
+portas = [1,2,3]
+# carro, jogador, apresentador
+escolhas = [random.choice(portas) , random.choice(portas) ,  randp
+

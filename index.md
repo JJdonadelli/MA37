@@ -2,7 +2,7 @@
 
 [**Jair Donadelli**](http://hostel.ufabc.edu.br/~jair.donadelli/)  (sala 546, torre 2, bloco A)						**email** jair.donadelli@ufabc.edu.br
 
-**onde:** S - 311-1; 13:00 –16:00	
+**onde:** S-307-3; 13:00 –16:00	
 
 **Objetivo**: a disciplina enfatiza aplicações matemáticas, usando técnicas de modelagem como procedimento, de modo a desenvolver, no aluno, capacidades e atitudes criativas na direção da resolução de problemas; desenvolver o espírito crítico do estudante de modo que ele possa utilizar a matemática como ferramenta para resolver problemas em diferentes situações e áreas.
 

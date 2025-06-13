@@ -34,10 +34,9 @@ matemática no ensino.
 5. Sistemas de equações de diferenças lineares. (Ref.: cap 2 de [2])([resumo](equilibrio_estabilidade_ordem2.pdf) do conteúdo).  Gráficos [1](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=259750752#gid=259750752), [2](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1093433801#gid=1093433801)
 6. Probabilidade em modelagem matemática. Notas de aula: [probabilidade](probabilidade.pdf), [variáveis aleatórias](varsaleatorias.pdf). Planilha [simulação de Monty Hall](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1483823682#gid=1483823682)
 7. Probabilidade em modelagem matemática. Problema da ruína.  [Notas de aula](ruina.pdf). Planilha com  [simulação](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1154309694#gid=1154309694).
-8. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](piramide.pdf). [TAbela e Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades.
-9. Ajuste de curvas  (Ref.: cap 2 de [1])
-10. Equações diferenciais: geral de primeira ordem e problema de valor inicial
-11. Equação diferencial fundamental e equações autônomas
+8. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](piramide.pdf). [Tabela e Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades. 
+9. Equações diferenciais: geral de primeira ordem e problema de valor inicial
+10. Equação diferencial fundamental e equações autônomas
 12. Modelos matemáticos com equações diferenciais de primeira ordem
 13. Modelagem matemática
 14. Modelagem matemática

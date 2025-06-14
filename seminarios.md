@@ -30,14 +30,14 @@ De um modo geral serão avaliados o conteúdo técnico, comunicação e organiza
 
 
 
-1. [Evitando o desperdício de alimento](desperdicio.pdf)
+1. [Evitando o desperdício de alimento](desperdicio.pdf)- **Glaucinea**
 2. [Embalagens de achocolatados](achocolatado.pdf) - **Pedro**
 
-1. [Pagamento antecipado de parcelas](parcelas.pdf)
+1. [Pagamento antecipado de parcelas](parcelas.pdf) - **Gabriel**
 2. [Dança esportiva em cadeiras de rodas](danca.pdf)
 3. [Criminalidade no ABCD](crime.pdf)
 4. [Caminhos minimos](modelagemgrafos.pdf) -  **Guilherme**
-5. [Poluição (despoluição) de lagos](poluicao.pdf) **Bruno**
+5. [Poluição (despoluição) de lagos](poluicao.pdf) - **Bruno**
 6. [Corrida de 100m](esporte.pdf)
 7. [Vinho](vinho.pdf)
 8. [Alcolismo](alcolismo) 

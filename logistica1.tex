@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Modelo de Difusão Social}
+
+Sociólogos reconhecem um fenômeno chamado \textit{difusão social}, que é a propagação de uma informação, uma inovação tecnológica ou uma moda cultural entre uma população. 
+
+Os membros da população podem ser divididos em duas classes: aqueles que possuem a informação e aqueles que ainda não a possuem. 
+
+Em uma população fixa de tamanho conhecido $N$, é razoável supor que a taxa de difusão seja proporcional ao número de indivíduos que possuem a informação vezes o número de indivíduos que ainda não a receberam.
+
+Se $X(t)$ denota o número de indivíduos que possuem a informação em uma população de tamanho $N$, então o modelo matemático para a difusão social é dado por:
+
+\[
+\frac{dX}{dt} = k X (N - X)
+\]
+
+onde $t$ representa o tempo e $k$ é uma constante positiva.
+
+\bigskip
+
+\textbf{a) Resolva o modelo e mostre que ele leva a uma curva logística.}
+
+Separando variáveis:
+
+\[
+\frac{dX}{X (N - X)} = k dt
+\]
+
+Decompondo em frações parciais:
+
+\[
+\frac{1}{X (N - X)} = \frac{1}{N} \left( \frac{1}{X} + \frac{1}{N - X} \right)
+\]
+
+Integrando:
+
+\[
+\frac{1}{N} \left( \ln |X| - \ln |N - X| \right) = k t + C
+\]
+
+\[
+\ln \frac{X}{N - X} = N k t + C'
+\]
+
+onde $C' = N C$.
+
+\[
+\frac{X}{N - X} = A e^{N k t}
+\]
+
+onde $A = e^{C'}$.
+
+\[
+X = \frac{N A e^{N k t}}{1 + A e^{N k t}}
+\]
+
+ou equivalentemente:
+
+\[
+X = \frac{N}{1 + B e^{-N k t}}
+\]
+
+onde $B = \frac{N}{X_0} - 1$ e $X_0 = X(0)$.
+
+\bigskip
+
+\textbf{b) Em que instante a informação se espalha mais rapidamente?}
+
+A taxa de difusão é:
+
+\[
+\frac{dX}{dt} = k X (N - X)
+\]
+
+A taxa máxima ocorre quando:
+
+\[
+X = \frac{N}{2}
+\]
+
+Substituindo na solução:
+
+\[
+\frac{N}{2} = \frac{N}{1 + B e^{-N k t}}
+\]
+
+\[
+1 + B e^{-N k t} = 2
+\]
+
+\[
+B e^{-N k t} = 1
+\]
+
+\[
+e^{-N k t} = \frac{1}{B}
+\]
+
+\[
+t = \frac{1}{N k} \ln B
+\]
+
+\bigskip
+
+\textbf{c) Quantas pessoas eventualmente receberão a informação?}
+
+Quando $t \to \infty$:
+
+\[
+e^{-N k t} \to 0
+\]
+
+\[
+X \to N
+\]
+
+Portanto, \textbf{eventualmente toda a população receberá a informação}.
+
+\end{document}

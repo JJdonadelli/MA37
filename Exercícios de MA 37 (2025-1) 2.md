@@ -15,3 +15,32 @@
 ​	Calcule a taxa total de aprovação de cada grupo, considerando os dois cursos juntos.
 ​	Explique o resultado obtido e por que ele é considerado paradoxal.
 
+5. Sociólogos reconhecem um fenômeno chamado *difusão social*, que é a propagação de uma informação em uma população. Os membros da população podem ser divididos em duas classes: aqueles que possuem a informação e aqueles que ainda não a possuem.  Em uma população fixa de tamanho conhecido $N$, é razoável supor que a taxa de difusão seja proporcional ao número de indivíduos que possuem a informação vezes o número de indivíduos que ainda não a receberam. Se $X(t)$ denota o número de indivíduos que possuem a informação em uma população de tamanho $N$, então o modelo matemático para a difusão social é dado por:
+   $$
+   \frac{\text dX}{\text dt} = k X (N - X)
+   $$
+   onde $t$ representa o tempo e $k$ é uma constante positiva.
+   
+   (a) Resolva o modelo.
+   
+   (b) Em que instante a informação se espalha mais rapidamente?
+
+   (c) Quantas pessoas eventualmente receberão a informação?
+
+5. Os seguintes dados foram obtidos para o crescimento de uma população de ovelhas introduzida em um novo ambiente na ilha da Tasmânia (adaptado de Davidson, *On the Growth of the Sheep Population in Tasmania*, Trans. R. Soc. S. Australia 62 (1938): 342--346)
+   $$
+   \begin{array}{c|ccccccc}
+   t \, (\text{ano}) & 1814 & 1824 & 1834 & 1844 & 1854 & 1864 \\
+   \hline
+   P(t) & 125 & 275 & 830 & 1200 & 1750 & 1650 \\
+   \end{array}
+   $$
+   
+
+   (a) Faça uma estimativa de $M$ através da plotagem de $P(t)$.
+
+   (b) Plote $\ln \left(\frac{P}{M - P} \right)$ contra $t$. 
+
+   (c) Estime $rM$ e $t^*$ (o instante em que $P(t)$ é máximo).
+
+​	

@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+
+\begin{document}
+
+\section*{Crescimento da População de Ovelhas na Tasmânia}
+
+Os seguintes dados foram obtidos para o crescimento de uma população de ovelhas introduzida em um novo ambiente na ilha da Tasmânia (adaptado de J. Davidson, ``On the Growth of the Sheep Population in Tasmania,'' Trans. R. Soc. S. Australia 62 (1938): 342--346).
+
+\[
+\begin{array}{c|ccccccc}
+t \, (\text{ano}) & 1814 & 1824 & 1834 & 1844 & 1854 & 1864 \\
+\hline
+P(t) & 125 & 275 & 830 & 1200 & 1750 & 1650 \\
+\end{array}
+\]
+
+\bigskip
+
+\textbf{a) Faça uma estimativa de $M$ através da plotagem de $P(t)$.}
+
+Para estimar $M$, o tamanho máximo da população (ou capacidade de suporte), podemos plotar os dados $P(t)$ em função de $t$ e observar o valor para o qual a população parece se estabilizar.
+
+\bigskip
+
+\textbf{b) Plote $\ln \left[ \frac{P}{M - P} \right]$ contra $t$. Se uma curva logística parecer razoável, estime $rM$ e $t_*$.}
+
+Se assumirmos que o crescimento segue uma curva logística, então a solução do modelo logístico é:
+
+\[
+P(t) = \frac{M}{1 + B e^{-r M (t - t_*)}}
+\]
+
+ou de forma equivalente:
+
+\[
+\ln \left( \frac{P}{M - P} \right) = r M (t - t_*) 
+\]
+
+Portanto, ao plotar:
+
+\[
+y = \ln \left( \frac{P}{M - P} \right)
+\]
+
+em função de $t$, devemos obter aproximadamente uma linha reta, cuja inclinação é $rM$ e cujo intercepto nos fornece $t_*$. 
+
+Os passos são:
+\begin{itemize}
+    \item Estimar $M$ a partir do gráfico da população;
+    \item Calcular $y = \ln \left( \frac{P}{M - P} \right)$ para cada dado de $P$;
+    \item Plotar $y$ contra $t$ e ajustar uma reta;
+    \item A inclinação da reta será $rM$;
+    \item O ponto em que $y = 0$ corresponde a $t = t_*$.
+\end{itemize}
+
+\end{document}

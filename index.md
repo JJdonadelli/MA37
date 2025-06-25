@@ -36,10 +36,9 @@ matemática no ensino.
 7. Probabilidade em modelagem matemática. Notas de aula: [probabilidade](probabilidade.pdf), [variáveis aleatórias](varsaleatorias.pdf). Planilha [simulação de Monty Hall](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1483823682#gid=1483823682)
 8. Probabilidade em modelagem matemática. Problema da ruína.  [Notas de aula](ruina.pdf). Planilha com  [simulação](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1154309694#gid=1154309694).
 9. Aula de exercícios.
-10. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](piramide.pdf). [Tabela e Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades.  Introdução EDO.
-11. Equações diferenciais: geral de primeira ordem e problema de valor inicial
-12. Equação diferencial fundamental e equações autônomas
-13. Modelos matemáticos com equações diferenciais de primeira ordem
+10. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](piramide.pdf). [Tabela e Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades.  
+11. Equações diferenciai ordinarias de primeira ordem,  problema de valor inicial. Modelo logistico.
+12. Aula de exercícios.
 14. Modelagem matemática
 15. Modelagem matemática
 16. Modelagem matemática

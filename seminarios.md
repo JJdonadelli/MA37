@@ -38,7 +38,7 @@ De um modo geral serão avaliados o conteúdo técnico, comunicação e organiza
 3. [Criminalidade no ABCD](crime.pdf)
 4. [Caminhos minimos](modelagemgrafos.pdf) -  **Guilherme**
 5. [Poluição (despoluição) de lagos](poluicao.pdf) - **Bruno**
-6. [Corrida de 100m](esporte.pdf)
+6. [Corrida de 100m](esporte.pdf) - **Leandro**
 7. [Vinho](vinho.pdf)
 8. [Alcolismo](alcolismo) 
 9. [Redes neurais no ensino básico.](https://pmo.sbm.org.br/wp-content/uploads/sites/5/sites/5/2022/09/art32_vol10_SBM_PMO_2022.pdf) (só a parte matemática, sem os códigos de programação)

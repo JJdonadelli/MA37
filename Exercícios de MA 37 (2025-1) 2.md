@@ -4,16 +4,19 @@
 2. Suponha que *probabilite* é um vírus que afeta $10\%$ da população de estudantes universitários (essa taxa é conhecida, em epidemiologia,  como *prevalência* da doença). Um  professor de Probabilidade aplica um teste que detecta *probabilite* mas eventualmente se engana: $3\%$ de falsos positivos ($97\%$ é a *especificidade* do teste) e $1\%$ de falsos negativos ($99\%$ é a *especificidade*).  Se for detectado *probabilite* em um indivíduo escolhido ao acaso nessa população, qual é a probabilidade que ele tenha o vírus?  
 3. Agora, supondo que *probabilite*  seja uma contaminação muito rara,  digamos que apena $0{,}5\%$ da  população universitária tenha o vírus, e que o teste seja um pouco mais acurado, só há $1\%$ de chance de falsos positivos e falsos negativos.  Qual o valor preditivo positivo (probabilidade de ter o vírus dado que o teste foi positivo) do teste? A acurácia do teste garante utilidade diagnóstica nos casos em que a prevalência for muito baixa?
 4. Um departamento universitário oferece dois cursos: **Curso A** (difícil) e **Curso B** (fácil). Dois grupos de estudantes — **Grupo 1** e **Grupo 2** — fizeram os dois cursos. A tabela abaixo mostra as taxas de aprovação: 
-	| Curso   | Grupo   | Aprovados | Total | Taxa de aprovação |
-	| ------- | ------- | --------- | ----- | ----------------- |
-	| Curso A | Grupo 1 | 30        | 100   | 30%               |
-	| Curso A | Grupo 2 | 90        | 300   | 30%               |
-	| Curso B | Grupo 1 | 80        | 100   | 80%               |
-	| Curso B | Grupo 2 | 10        | 100   | 10%               |
 
-​	Qual grupo teve maior taxa de aprovação em cada curso, separadamente?
-​	Calcule a taxa total de aprovação de cada grupo, considerando os dois cursos juntos.
-​	Explique o resultado obtido e por que ele é considerado paradoxal.
+  | Curso   | Grupo   | Aprovados | Total | Taxa de Aprovação |
+  | ------- | ------- | --------- | ----- | ----------------- |
+  | Curso A | Grupo 1 | 672       | 800   | 84%               |
+  | Curso A | Grupo 2 | 160       | 200   | 80%               |
+  | Curso B | Grupo 1 | 170       | 200   | 85%               |
+  | Curso B | Grupo 2 | 648       | 800   | 81%               |
+
+  Qual **curso** teve maior taxa de aprovação em cada grupo, separadamente?
+
+  Qual é a taxa total de aprovação de cada **curso**, considerando os dois grupos juntos?
+
+  Explique o resultado obtido e por que ele é considerado paradoxal.
 
 5. Sociólogos reconhecem um fenômeno chamado *difusão social*, que é a propagação de uma informação em uma população. Os membros da população podem ser divididos em duas classes: aqueles que possuem a informação e aqueles que ainda não a possuem.  Em uma população fixa de tamanho conhecido $N$, é razoável supor que a taxa de difusão seja proporcional ao número de indivíduos que possuem a informação vezes o número de indivíduos que ainda não a receberam. Se $X(t)$ denota o número de indivíduos que possuem a informação em uma população de tamanho $N$, então o modelo matemático para a difusão social é dado por:
    $$
@@ -41,6 +44,6 @@
 
    (b) Plote $\ln \left(\frac{P}{M - P} \right)$ contra $t$. 
 
-   (c) Estime $rM$ e $t^*$ (o instante em que $P(t)$ é máximo).
+   (c) Estime $rM$ e $t^*$ (o instante em que $P'(t)$ é máximo).
 
 ​	

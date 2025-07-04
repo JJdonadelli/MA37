@@ -28,21 +28,36 @@ matemática no ensino.
 ## Programa
 
 1. [Aspectos conceituais de modelagem](https://docs.google.com/presentation/d/10wuOgh_fKhVVjRQx9AIKUxFgwcz46TpFdiy8Ur8iNl0/edit?usp=sharing). Limites de sequências e funções. (Ref.: cap 1 de [2], tarefa: ler 1.1 a 1.4 de [2])
+
 2. Convergência, estabilidade e cálculo do valor assintótico. Variações. (Ref.: cap 1 de [2]) 
+
 3. Equação de diferença de primeira ordem (Ref.: cap 2 de [2]). Gráficos [1](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1655264628#gid=1655264628), [2](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=93123850#gid=93123850), [3](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=0#gid=0), [4](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1570702360#gid=1570702360)
+
 4. Equação de diferença de segunda ordem. Estabilidade de equações de diferenças   (Ref.: cap 2 de [2]) Gráficos [1](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1284605758#gid=1284605758), [2](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1856974584#gid=1856974584), [3](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=851431346#gid=851431346), [4](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=460626968#gid=460626968)
+
 5. Sistemas de equações de diferenças lineares. (Ref.: cap 2 de [2])([resumo](equilibrio_estabilidade_ordem2.pdf) do conteúdo).  Gráficos [1](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=259750752#gid=259750752), [2](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1093433801#gid=1093433801)
+
 6. Aula de exercícios
+
 7. Probabilidade em modelagem matemática. Notas de aula: [probabilidade](probabilidade.pdf), [variáveis aleatórias](varsaleatorias.pdf). Planilha [simulação de Monty Hall](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1483823682#gid=1483823682)
+
 8. Probabilidade em modelagem matemática. Problema da ruína.  [Notas de aula](ruina.pdf). Planilha com  [simulação](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1154309694#gid=1154309694).
+
 9. Aula de exercícios.
+
 10. Modelo probabilístico de um esquema de pirâmide. [Notas de aula](piramide.pdf). [Tabela e Gráficos](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=1921675763#gid=1921675763). [Código](https://colab.research.google.com/drive/1ny7iBL4APXU2uY0w2B4Pfw0gVBnoZD3w?usp=sharing) usado para calcular probabilidades.  
-11. Equações diferenciai ordinarias de primeira ordem,  problema de valor inicial. Modelo logistico.
+
+11. Equações diferenciai ordinarias de primeira ordem,  problema de valor inicial. Modelo logistico ([planilha](https://docs.google.com/spreadsheets/d/1xrFkBaQD_7dD_BXeq6PeXPoeMQ9u4H8-G-ZwPQcySSI/edit?gid=812214420#gid=812214420)). 
+
 12. Aula de exercícios.
+
+13. Modelagem matemática
+
 14. Modelagem matemática
+
 15. Modelagem matemática
-16. Modelagem matemática
-17. Modelagem matemática
+
+    
 
 ## [1ª Lista de Exercícios](Exercicios1.html)
 

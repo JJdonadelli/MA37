@@ -1,62 +1,62 @@
 ### **Exercício: O Paradoxo de Simpson em Aprovações de Curso**
 
-Um departamento universitário oferece dois cursos: **Curso A** (difícil) e **Curso B** (fácil). Dois grupos de estudantes — **Grupo 1** e **Grupo 2** — fizeram os dois cursos. A tabela abaixo mostra as taxas de aprovação:
+Um departamento universitário oferece dois cursos:
 
-#### Tabela de aprovações por curso:
+- **Curso A** (difícil)  
+- **Curso B** (fácil)
 
-| Curso   | Grupo   | Aprovados | Total | Taxa de aprovação |
+Dois grupos de estudantes (Grupo 1 e Grupo 2) fizeram os dois cursos. A tabela a seguir mostra os dados de aprovação:
+
+| Curso   | Grupo   | Aprovados | Total | Taxa de Aprovação |
 | ------- | ------- | --------- | ----- | ----------------- |
-| Curso A | Grupo 1 | 30        | 100   | 30%               |
-| Curso A | Grupo 2 | 90        | 300   | 30%               |
-| Curso B | Grupo 1 | 80        | 100   | 80%               |
-| Curso B | Grupo 2 | 10        | 100   | 10%               |
+| Curso A | Grupo 1 | 672       | 800   | 84%               |
+| Curso A | Grupo 2 | 160       | 200   | 80%               |
+| Curso B | Grupo 1 | 170       | 200   | 85%               |
+| Curso B | Grupo 2 | 648       | 800   | 81%               |
 
+Qual curso teve maior taxa de aprovação em cada grupo, separadamente?
 
+Qual é a taxa total de aprovação de cada curso, considerando os dois grupos juntos?
 
-**Pergunta 1:**
- Qual grupo teve maior taxa de aprovação em **cada curso**, separadamente?
+## Pergunta 1:
 
-**Pergunta 2:**
- Calcule a **taxa total de aprovação** de cada grupo, considerando os dois cursos juntos.
+**Qual curso teve maior taxa de aprovação em cada grupo, separadamente?**
 
-**Pergunta 3:**
- Explique o resultado obtido e por que ele é considerado paradoxal.
+### Grupo 1:
+- Curso A: 672 / 800 = **84%**
+- Curso B: 170 / 200 = **85%**
 
-------
+✅ **Curso B** teve maior taxa de aprovação no Grupo 1.
 
-### ✅ **Solução Esperada**
+### Grupo 2:
+- Curso A: 160 / 200 = **80%**
+- Curso B: 648 / 800 = **81%**
 
-#### Pergunta 1 — Comparação por curso:
+✅ **Curso B** teve maior taxa de aprovação no Grupo 2.
 
-- **Curso A:**
-  - Grupo 1: 30 / 100 = **30%**
-  - Grupo 2: 90 / 300 = **30%**
-  - → Empate.
-- **Curso B:**
-  - Grupo 1: 80 / 100 = **80%**
-  - Grupo 2: 10 / 100 = **10%**
-  - → **Grupo 1 se saiu melhor**.
+---
 
-#### Pergunta 2 — Taxa total de aprovação:
+## Pergunta 2:
 
-- **Grupo 1:**
-  - Total aprovados = 30 (A) + 80 (B) = 110
-  - Total estudantes = 100 (A) + 100 (B) = 200
-  - Taxa total = 110 / 200 = **55%**
-- **Grupo 2:**
-  - Total aprovados = 90 (A) + 10 (B) = 100
-  - Total estudantes = 300 (A) + 100 (B) = 400
-  - Taxa total = 100 / 400 = **25%**
+**Qual é a taxa total de aprovação de cada curso, considerando os dois grupos juntos?**
 
-→ **Grupo 1 tem taxa total maior (55%)**, mesmo tendo desempenho igual em A e muito melhor em B.
+### Curso A:
+- Total de aprovados: 672 + 160 = **832**
+- Total de alunos: 800 + 200 = **1000**
+- Taxa de aprovação: 832 / 1000 = **83,2%**
 
-#### Pergunta 3 — Explicação do paradoxo:
+### Curso B:
+- Total de aprovados: 170 + 648 = **818**
+- Total de alunos: 200 + 800 = **1000**
+- Taxa de aprovação: 818 / 1000 = **81,8%**
 
-Apesar de **Grupo 1 ter desempenho igual ou melhor em cada curso individualmente**, isso não garante que ele se saia melhor **no total** — o contrário pode acontecer, **dependendo da distribuição dos estudantes entre os cursos**.
+✅ **Curso A** teve maior taxa de aprovação no total agregado.
 
-Neste caso:
+---
 
-- **Grupo 1** se concentrou no Curso B (mais fácil).
-- **Grupo 2** se concentrou no Curso A (mais difícil).
+## Conclusão:
 
-O paradoxo de Simpson mostra que **as médias ponderadas podem inverter relações aparentes**, se os **pesos (número de alunos)** forem distribuídos de forma desigual entre subgrupos.
+- Em **cada grupo**, o **Curso B** teve a maior taxa de aprovação.
+- No **total geral**, o **Curso A** teve a maior taxa de aprovação.
+
+🔁 Este é um exemplo clássico do **Paradoxo de Simpson**, no qual a tendência observada nos subgrupos se inverte ao considerar os dados agregados.

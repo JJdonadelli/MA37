@@ -206,23 +206,77 @@ Q_3 &= 402 + 0{,}2(120 - 100) = 406
 
 \textbf{Conclusão:} Pode levar a oscilações crescentes ou retorno lento, dependendo da dinâmica.
 
+\subsection*{Forma Matricial}
 
-\paragraph{Resumo:}
+O sistema pode ser reescrito como:
+\[
+\begin{bmatrix}
+P_{n+1} \\
+Q_{n+1}
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 & -0{,}1 \\
+0{,}2 & 1
+\end{bmatrix}
+\begin{bmatrix}
+P_n \\
+Q_n
+\end{bmatrix}
++
+\begin{bmatrix}
+50 \\
+-20
+\end{bmatrix}
+\]
+
+\subsection*{Análise de Estabilidade}
+
+A matriz do sistema é:
+\[
+A = \begin{bmatrix}
+1 & -0{,}1 \\
+0{,}2 & 1
+\end{bmatrix}
+\]
+
+O polinômio característico é:
+\[
+\det(A - \lambda I) = (1 - \lambda)^2 + 0{,}02 = 0
+\Rightarrow \lambda = 1 \pm i \sqrt{0{,}02}
+\]
+
+Os autovalores são complexos com módulo:
+\[
+|\lambda| = \sqrt{1^2 + 0{,}02} = \sqrt{1{,}02} \approx 1{,}01 > 1
+\]
+
+Portanto, o ponto de equilíbrio é \textbf{instável}, com comportamento oscilatório e divergente (espiral).
+
+\subsection*{Simulações Numéricas}
+
+Foram simulados quatro casos com as seguintes condições iniciais:
 
 \begin{center}
-\begin{tabular}{lccc}
-\toprule
-\textbf{Caso} & \textbf{Comportamento} & \textbf{Convergência} \\
-\midrule
-A & Já está no equilíbrio & $(100,500)$ \\
-B & $P$ cai, $Q$ sobe & Converge para $(100,500)$ \\
-C & $P$ cai, $Q$ cai & Converge para $(100,500)$ \\
-D & $P$ sobe, $Q$ sobe & Converge para $(100,500)$ \\
-\bottomrule
+\begin{tabular}{c|c|c}
+\textbf{Caso} & \( P_0 \) & \( Q_0 \) \\
+\hline
+A & 100 & 500 \\
+B & 200 & 500 \\
+C & 100 & 600 \\
+D & 100 & 400 \\
 \end{tabular}
 \end{center}
 
+O caso A permanece constante, pois inicia no ponto de equilíbrio. Os demais casos apresentam oscilações crescentes, confirmando a instabilidade.
 
+\begin{center}
+  \includegraphics[width=0.8\textwidth]{fase.png}
+\end{center}
+
+\textit{Observação: a figura acima representa as trajetórias no plano \( (P_n, Q_n) \). O ponto de equilíbrio \( (100, 500) \) é marcado como referência.}
+
+\paragraph
 
 \subsection*{Simulações Numéricas (Gráficos)}
 

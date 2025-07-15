@@ -51,11 +51,11 @@ matemática no ensino.
 
 12. Aula de exercícios.
 
-13. Modelagem matemática
+13. Modelagem matemática - [Caminhos mínimos](https://drive.google.com/file/d/1iMO_iFHaG7qm720vxj39pzNNqj_-i6ll/view?usp=drivesdk), Pagamento antecipado de parcelas
 
-14. Modelagem matemática
+14. Modelagem matemática - Embalagens de achocolatados, Corrida de 100m
 
-15. Modelagem matemática
+15. Modelagem matemática - Evitando o desperdício de alimento; Poluição (despoluição) de lagos 
 
     
 
@@ -71,9 +71,9 @@ Entrega em 11/07.
 
 ## Avaliação
 
-O método avaliativo consistirá de **exercícios/trabalhos** (60%) **apresentação oral  de trabalho** (40%).
+O método avaliativo consistirá de **exercícios** (60%) **apresentação oral de trabalho** (40%).
 
-As tarefas extra classe terão prazo de entrega.
+As tarefas extra classe terão prazo de entrega. Os alunos que não atingirem o conceito mínimo de aprovação podem fazer um **exame de recuperação** em data a combinar com o professor que será uma prova escrita com todo o conteúdo da disciplina.
 
 ### Conceito final 
 

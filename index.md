@@ -1,3 +1,5 @@
+**[NOTAS](https://docs.google.com/spreadsheets/d/1m04hKnidrF96GrvvqwljxVhh1qRe09BVedFEiwWQ3-k/edit?usp=sharing)**
+
 # MA 37 – Modelagem Matemática
 
 [**Jair Donadelli**](http://hostel.ufabc.edu.br/~jair.donadelli/)  (sala 546, torre 2, bloco A)						**email** jair.donadelli@ufabc.edu.br
